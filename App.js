@@ -1,34 +1,10 @@
+import React from "react";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-
-const HomeScreen = ({ navigation }) => {
-  return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Pergi ke Progate"
-        onPress={() =>
-          navigation.navigate("Progate", {
-            name: "Kang Tae Moo",
-            languange: "React Native",
-          })
-        }
-      />
-    </View>
-  );
-};
-
-const ProgateScreen = ({ route, navigation }) => {
-  return (
-    <View style={styles.container}>
-      <Text>Welcome to Progate, {route.params.name}!</Text>
-      <Text>Ayo belajar, {route.params.languange}!</Text>
-      <Button title="Kembali" onPress={() => navigation.goBack()} />
-    </View>
-  );
-};
+import Home from "./src/components/home";
+import Progate from "./src/components/progate";
+import Contact from "./src/components/contact";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,21 +12,9 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen
-          name="Progate"
-          component={ProgateScreen}
-          options={{
-            title: "Progate React Native",
-            headerStyle: {
-              backgroundColor: "#380953",
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Progate" component={Progate} />
+        <Stack.Screen name="Contact" component={Contact} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -61,6 +25,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  marginBottom20: {
+    marginBottom: 20,
   },
 });
 
