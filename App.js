@@ -37,7 +37,20 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Progate" component={ProgateScreen} />
+        <Stack.Screen
+          name="Progate"
+          component={ProgateScreen}
+          options={{
+            title: "Progate React Native",
+            headerStyle: {
+              backgroundColor: "#380953",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
